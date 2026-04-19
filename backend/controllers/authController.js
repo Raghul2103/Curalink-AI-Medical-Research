@@ -20,11 +20,11 @@ export const login = async (req, res) => {
   const token = createJwt({ userId: user._id, role: user.role });
 
   res.cookie('token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    maxAge: 24 * 60 * 60 * 1000,
-  });
+  httpOnly: true,
+  secure: true,
+  sameSite: 'None',
+  maxAge: 24 * 60 * 60 * 1000,
+});
 
   res.status(StatusCodes.OK).json({
     msg: 'Login successful',
@@ -39,7 +39,12 @@ export const getCurrentUser = async (req, res) => {
 };
 
 export const logout = async (req, res) => {
-  res.cookie('token', 'logout', { httpOnly: true, expires: new Date(Date.now()) });
+  res.cookie('token', '', {
+  httpOnly: true,
+  secure: true,
+  sameSite: 'None',
+  expires: new Date(0),
+});
   res.status(StatusCodes.OK).json({ msg: 'Logged out successfully' });
 };
 
