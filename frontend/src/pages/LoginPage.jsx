@@ -146,7 +146,7 @@ export default function LoginPage() {
                    disabled={loading}
                    className="w-full py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] sm:text-xs text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-xl flex items-center justify-center gap-3 group relative overflow-hidden"
                    style={{
-                     background: 'linear-gradient(135deg, #020617, #0f172a)',
+                     background: 'linear-gradient(135deg, #dc2626, #991b1b)',
                    }}
                  >
                    {loading ? (
