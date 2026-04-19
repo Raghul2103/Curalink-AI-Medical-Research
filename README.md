@@ -2,7 +2,7 @@
 
 Curalink is a high-performance, institutional-grade medical research assistant built on the MERN stack. Designed for clinical investigators, it provides a "Command Console" interface for real-time telemetry from peer-reviewed sources.
 
-![Curalink Tactical Logo](frontend/public/logo.png)
+<!-- ![Curalink Tactical Logo](frontend/public/logo.png) -->
 
 ## 🛡️ Investigative Intelligence
 Curalink aggregates and synthesizes medical data from multiple high-authority sources:
