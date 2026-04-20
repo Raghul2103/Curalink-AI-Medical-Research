@@ -124,11 +124,19 @@ export default function Navbar({ onMenuClick }) {
         ref={searchRef}
       >
         <div
-          className={`flex items-center gap-3 rounded-[2rem] border-2 transition-all duration-500 w-full ${
+          className={`flex items-center gap-3 rounded-[2rem] border-2 transition-all duration-500 w-full cursor-pointer ${
             focused || mobileSearchOpen ? 'px-6 py-4 search-active bg-white/5 shadow-inner' : 'px-5 py-3.5 bg-[--bg-input]'
           }`}
           style={{
             borderColor: (focused || mobileSearchOpen) ? '#dc2626' : 'var(--bg-border)',
+          }}
+          onClick={() => {
+            if (window.innerWidth < 640 && !mobileSearchOpen) {
+              setMobileSearchOpen(true);
+              setTimeout(() => inputRef.current?.focus(), 100);
+            } else {
+              inputRef.current?.focus();
+            }
           }}
         >
           <svg className="w-5 h-5 shrink-0 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -150,7 +158,7 @@ export default function Navbar({ onMenuClick }) {
             }}
             placeholder={focused ? "Analyzing archives..." : "Research keyword..."}
             className={`flex-1 bg-transparent outline-none text-[11px] font-black uppercase tracking-[0.1em] placeholder:opacity-30 min-w-0 ${
-              !mobileSearchOpen && 'hidden sm:block'
+              mobileSearchOpen ? 'block' : 'hidden sm:block'
             }`}
             style={{ color: 'var(--text-primary)', caretColor: '#dc2626' }}
           />
